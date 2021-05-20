@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.demo.domain.mapper.UserMapper">
+
+
+    <select id="findById" resultType="com.demo.domain.dataobject.User">
+        SELECT * FROM default.user WHERE id = #{uid,jdbcType=INTEGER};
+    </select>
+
+    <select id="page" resultType="com.demo.domain.dataobject.User">
+        SELECT * FROM default.user
+        <where>
+            <if test="user != user">
+                <bind name="u" value="user"/>
+                <if test="u.userName != null ">
+                    and user_name = #{u.userName}
+                </if>
+                <if test="u.phone != null ">
+                    and phone = #{u.phone}
+                </if>
+                <if test="u.email != null ">
+                    and email = #{u.email}
+                </if>
+            </if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+
+</mapper>

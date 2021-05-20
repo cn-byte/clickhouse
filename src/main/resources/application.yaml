@@ -1,0 +1,54 @@
+server:
+  http2:
+    enabled: true
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+  error:
+    include-exception: true
+    include-stacktrace: on-trace-param
+    path: /error
+    whitelabel:
+      enabled: true
+  port: 9001
+  servlet:
+    context-path: /
+    session:
+      timeout: 604800
+
+spring:
+  profiles:
+    active: dev
+  aop:
+    proxy-target-class: true
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  devtools:
+    restart:
+      enabled: false
+      exclude: META-INF/maven/**,META-INF/resources/**,resources/**,static/**,WEB-INF/jsp/**,public/**,templates/**,**/*Test.class,**/*Tests.class,git.properties,META-INF/build-info.properties
+  http:
+    encoding:
+      charset: UTF-8
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    generator:
+      WRITE_BIGDECIMAL_AS_PLAIN: true
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
+      INDENT_OUTPUT: true
+    time-zone: GMT+8
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    variables:
+      sitesUrl: "http://demo.com"
+
+mybatis-plus:
+  mapper-locations:  classpath:mapper/*.xml
+  configuration:
+    jdbc-type-for-null: 'null'
