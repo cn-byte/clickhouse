@@ -3,7 +3,9 @@ Springboot clickhouse
 
 ![avatar](https://raw.githubusercontent.com/saimen90/clickhouse/master/sql-dbserver.png)
 
-[Dubbo接口文档，查询地址：https://blog.csdn.net/qq_15371293/article/details/117090780]
+[文章地址 ：https://blog.csdn.net/qq_15371293/article/details/117090780]
+
+[ClickHouse安装使用Centos7环境 ：https://blog.csdn.net/qq_15371293/article/details/117018036]
 ##  
 注意的是只有MergeTree系列的表引擎才支持主键索引，数据分区，数据副本，数据采样这样的特性，只有此系列的表引擎才支持ALTER操作。
 
